@@ -7,13 +7,10 @@ import java.util.stream.Stream;
 public class IrisDataLoader implements DataLoader {
 
     // Probably one of the ugliest quick solution!
-    Dataset dataset = new Dataset(150, 4);
-    // do not do it!
-    int row = 0;
+    Dataset dataset = new Dataset();
 
     public Dataset load() {
         String fileName = "iris.data";
-        int row = 0;
 		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(line -> addIrisItem(line));
 		} catch (IOException e) {
@@ -24,13 +21,14 @@ public class IrisDataLoader implements DataLoader {
 
     private void addIrisItem(String line) {
         int index = 0;
+        Item item = new Item();
         for (String s : line.split(",")) {
-            dataset.set(row, index, Double.parseDouble(s));
+            item.add(Double.parseDouble(s));
             index++;
             if (index == 4) {
-                return;
+                break;
             }
         }
-        row++;
+        dataset.add(item);
     }
 }

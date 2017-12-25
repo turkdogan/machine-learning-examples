@@ -1,31 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.scene.chart.PieChart.Data;
+
 public class Dataset {
 
-    private double[][] data;
+    private List<Item> items = new ArrayList<>();
 
-    public Dataset(int row, int col) {
-        data = new double[row][];
-        for (int i = 0; i < row; i++) {
-            data[i] = new double[col];
-        }
+    public void add(Item item) {
+        items.add(item);
     }
 
-    public double[][] get() {
-        // return reference
-        return data;
-    }
-
-    public double get(int row, int col) {
-        if (row > data.length || col > data[0].length) {
-            throw new IndexOutOfBoundsException("Index problem; row, col: " + row + ", " + col);
-        }
-        return data[row][col];
-    }
-
-    public void set(int row, int col, double item) {
-        if (row > data.length || col > data[0].length) {
-            throw new IndexOutOfBoundsException("Index problem; row, col: " + row + ", " + col);
-        }
-        data[row][col] = item;
+    /**
+     * @return the items
+     */
+    public List<Item> getItems() {
+        return items;
     }
 
     public void standardize() {
