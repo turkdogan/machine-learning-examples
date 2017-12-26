@@ -1,5 +1,9 @@
+package clustering;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import data.Item;
 
 public class Cluster {
 
@@ -33,6 +37,20 @@ public class Cluster {
             }
             this.centroid.add(featureSum / (double)items.size());
         }
+    }
+
+    /**
+     * Calculates the total eucledian distance between dataset and centroid
+     */
+    public double intraClusterDistance() {
+        if (this.items.isEmpty() || centroid == null) {
+            return 0;
+        }
+        double total = 0.0;
+        for (Item item : items) {
+            total += item.distance(centroid);
+        }
+        return total;
     }
 
     /**
