@@ -1,2 +1,2 @@
 # machine-learning-examples
-Machine learning example implementations in Python
+Machine learning example implementations in Java
