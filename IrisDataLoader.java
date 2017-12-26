@@ -23,11 +23,12 @@ public class IrisDataLoader implements DataLoader {
         int index = 0;
         Item item = new Item();
         for (String s : line.split(",")) {
-            item.add(Double.parseDouble(s));
-            index++;
             if (index == 4) {
+            	item.setName(s);
                 break;
             }
+            item.add(Double.parseDouble(s));
+            index++;
         }
         dataset.add(item);
     }

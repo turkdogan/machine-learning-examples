@@ -31,7 +31,7 @@ public class Cluster {
             for (Item item : items) {
                 featureSum += item.get(i);
             }
-            this.centroid.add(featureSum / (double)featureCount);
+            this.centroid.add(featureSum / (double)items.size());
         }
     }
 

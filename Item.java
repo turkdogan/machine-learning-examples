@@ -1,16 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.OptionalDouble;
 
 public class Item {
 
     private List<Double> values = new ArrayList<>();
+    
+    public String name;
 
     public double get(int index) {
         if (index >= values.size()) {
             throw new IndexOutOfBoundsException();
         }
         return values.get(index);
+    }
+    
+    public void set(int feature, double value) {
+        if (feature < 0 || feature >= values.size()) {
+            throw new IndexOutOfBoundsException();
+        }
+        values.set(feature, value);
     }
 
     public void add(Double value) {
@@ -61,4 +69,12 @@ public class Item {
     public void setValues(List<Double> values) {
         this.values = values;
     }
+    
+    public String getName() {
+		return name;
+	}
+    
+    public void setName(String name) {
+		this.name = name;
+	}
 }
