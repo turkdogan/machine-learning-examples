@@ -9,6 +9,14 @@ public class Item {
     
     public String name;
 
+    public Item() {
+    }
+
+    public Item(Item item) {
+        this.name = item.getName();
+        values.addAll(item.getValues());
+    }
+
     public double get(int index) {
         if (index >= values.size()) {
             throw new IndexOutOfBoundsException();

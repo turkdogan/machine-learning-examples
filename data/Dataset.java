@@ -7,9 +7,11 @@ import java.util.List;
 public class Dataset {
 
     private List<Item> items = new ArrayList<>();
+    private List<Item> originalItems = new ArrayList<>();
 
     public void add(Item item) {
-        items.add(item);
+		items.add(item);
+		originalItems.add(new Item(item));
     }
 
     /**
@@ -17,7 +19,11 @@ public class Dataset {
      */
     public List<Item> getItems() {
         return items;
-    }
+	}
+
+	public List<Item> getOriginalItems() {
+		return originalItems;
+	}
     
     public void shuffle() {
     	Collections.shuffle(items);
