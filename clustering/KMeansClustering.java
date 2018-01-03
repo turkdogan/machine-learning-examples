@@ -58,8 +58,8 @@ public class KMeansClustering {
             for (Cluster cluster : clusters) {
                 cluster.calculateCentroid();
 
-                // do not remove in the last iteration
                 // to be able to show the assigned items to clusters
+                // do not remove in the last iteration
                 if (it < iterationCount - 1) {
                     cluster.clear();
                 }
@@ -67,5 +67,4 @@ public class KMeansClustering {
         }
         return clusters;
     }
-    
 }

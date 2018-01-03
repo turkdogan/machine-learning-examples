@@ -40,7 +40,7 @@ public class Cluster {
     }
 
     /**
-     * Calculates the total eucledian distance between dataset and centroid
+     * Calculates the total eucledian distance between cluster items and centroid
      */
     public double intraClusterDistance() {
         if (this.items.isEmpty() || centroid == null) {
@@ -51,6 +51,7 @@ public class Cluster {
             total += item.distance(centroid);
         }
         return total;
+        //return 2.0 * this.items.size() * total;
     }
 
     /**
